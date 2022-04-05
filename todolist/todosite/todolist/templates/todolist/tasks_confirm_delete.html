@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tasks %}
+<div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+
+    {% block main %}
+
+    <form action="{% url 'task_delete' tasks.pk %}" method="post">
+        {% csrf_token %}
+        <h2>Вы точно хотите удалить задачу {{ tasks.title }}</h2>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+
+    {% endblock %}
+
+</div>
+{% endblock %}

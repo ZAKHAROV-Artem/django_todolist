@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block tasks %}
+<div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+
+    {% block main %}
+
+    <form action="{% url 'task_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Обновить</button>
+    </form>
+
+    {% endblock %}
+
+</div>
+{% endblock %}
